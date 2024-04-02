@@ -4,15 +4,54 @@
 <head>
   <title>Task Manager</title>
   <!-- Latest compiled and minified CSS -->
+  <%= stylesheet_link_tag "styles" %>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This ensures it takes up the full viewport height */
+  },
+  .big-link {
+    font-size: 20px;
+    width: 50%;
+    color: white;
+    background-color: #007bff; /* blue color */
+    border-color: #007bff;}
+
+     .big-link:hover {
+
+    font-size: 20px;
+    color: white;
+    background-color: black; /* blue color */
+    border-color: #007bff;}
+
+    .si{
+      width: 25%;
+      height: 7vh;
+      padding: 5%;
+      background-color: cyan;
+      color: black;
+    }
+</style>
+
 </head>
   <body>
-<%= link_to "All Project", buckets_path%>
-<%= link_to "All Tasks", tasks_path%>
-<%= yield %>
+
+
+<div class = "center-container">
+          <div class= 'row text-center justify-center'>
+                <%= yield %>
+                <%= link_to "All Project", buckets_path, class: 'btn si btn-primary big-link' %>
+                <%= link_to "All Tasks", tasks_path, class: 'btn si btn-primary big-link' %>
+          </div>
+      </div>
+
 </body>
 </html>

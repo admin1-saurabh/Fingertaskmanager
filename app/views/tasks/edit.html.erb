@@ -1,14 +1,128 @@
-<h1><%= "EDIT: " + @task.name %></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= "EDIT: " + @task.name %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+      margin: 0;
+      padding: 0;
+    }
 
-<%= form_for(@task) do |f| %>
-    <%= f.label :name%><br>
-    <%= f.text_field :name%><br>
-    <br><%= f.label :description%><br>
-    <%= f.text_area :description%><br>
-    <br><%= f.label "Bucket"%>
-    <%= f.collection_select :bucket_id, Bucket.order(:name),:id, :name %><br>
-    <br><%= f.check_box :status, {}, "Completed", "Pending" %> Completed?<br>
-    <br><%= f.submit %><br>
-<% end %>
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-<br><%= button_to "Delete Task", @task, :method => :delete, data: {confirm: 'Are you sure?'} %>
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input[type="checkbox"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"],
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    input[type="submit"]:hover,
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      width:50%
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    },.flexi{
+        display:flex;
+        flex-direction:column;
+
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1><%= "EDIT: " + @task.name %></h1>
+<div class='flexi'>
+    <div class=''>
+  <%= form_for(@task) do |f| %>
+    <div>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+</div>
+<div>
+    <div>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+
+</div>
+<div>
+    <div>
+      <%= f.label "Bucket" %><br>
+      <%= f.collection_select :bucket_id, Bucket.order(:name), :id, :name %>
+    </div>
+</div>
+
+<div>
+    <div>
+      <%= f.check_box :status, {}, "Completed", "Pending" %> Completed?
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+</div>
+
+  <br>
+  <%= button_to "Delete Task", @task, :method => :delete, class: "delete-btn", data: {confirm: 'Are you sure?'} %>
+</div>
+
+</body>
+</html>

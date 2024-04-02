@@ -1,17 +1,93 @@
-<h1>TASKS LIST</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TASKS LIST</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
 
-<%= button_to "Create Task", new_task_path, method: :get %>
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-<h3>Pending Tasks</h3>
-<ul>
-<% @pending_tasks.each do |task| %>
-    <li><%= link_to task.name, task_path(task) %></li>
-<% end %>
-</ul>
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-<h3>Completed Tasks</h3>
-<ul>
-<% @completed_tasks.each do |task| %>
-    <li><%= link_to task.name, task_path(task) %></li>
-<% end %>
-</ul>
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .create-task-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 15px 30px; /* Increase padding for a bigger button */
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      text-align: center;
+      width: 100%;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .create-task-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>TASKS LIST</h1>
+
+  <%= button_to "Create Task", new_task_path, method: :get, class: "create-task-button" %>
+
+  <h3>Pending Tasks</h3>
+  <ul>
+    <% @pending_tasks.each do |task| %>
+      <li><%= link_to task.name, task_path(task) %></li>
+    <% end %>
+  </ul>
+
+  <h3>Completed Tasks</h3>
+  <ul>
+    <% @completed_tasks.each do |task| %>
+      <li><%= link_to task.name, task_path(task) %></li>
+    <% end %>
+  </ul>
+</div>
+
+</body>
+</html>

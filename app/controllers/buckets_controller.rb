@@ -4,7 +4,7 @@ class BucketsController < ApplicationController
         @pending_buckets = Bucket.get_by_status("Pending")
         @completed_buckets = Bucket.get_by_status("Completed")
     end
-
+ 
     def new
         @bucket = Bucket.new
     end

@@ -1,9 +1,71 @@
-<h1><%= @task.name %></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @task.name %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+      margin: 0;
+      padding: 0;
+    }
 
-<p><%= @task.description %></p>
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+    }
 
-<h3><%= @task.bucket.name %></h3>
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-<h6><%= @task.status %></h6>
+    h3, h6 {
+      margin-bottom: 10px;
+    }
 
-<%= button_to "Edit task", edit_task_path(@task), method: :get %>
+    p {
+      margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 50%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1 style = 'color: yellowseagreen'><%= @task.name %></h1>
+
+  <p><%= @task.description %></p>
+
+  <h3 style = 'color: yellowseagreen'><%= @task.bucket.name %></h3>
+
+  <h6><%= @task.status %></h6>
+
+  <%= button_to "Edit task", edit_task_path(@task), method: :get %>
+</div>
+
+</body>
+</html>
