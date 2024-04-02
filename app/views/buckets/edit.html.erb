@@ -1,11 +1,119 @@
-<h1><%= "EDIT: " + @bucket.name %></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= "EDIT: " + @bucket.name %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+      margin: 0;
+      padding: 0;
+    }
 
-<%= form_for(@bucket) do |f| %>
-    <%= f.label :name%><br>
-    <%= f.text_field :name%><br>
-    <br><%= f.label :description%><br>
-    <%= f.text_area :description%><br>
-    <br><%= f.submit %><br>
-<% end %>
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-<br><%= button_to "Delete Bucket", @bucket, :method => :delete, data: {confirm: 'Are you sure?'} %>
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff; /* Dark blue color for headings */
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input[type="submit"],
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    input[type="submit"]:hover,
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    },
+    .flexi{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1><%= "EDIT: " + @bucket.name %></h1>
+<div class='flexi'>
+<div>
+  <%= form_for(@bucket) do |f| %>
+    <div>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+</div>
+<div>
+    <div>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+</div>
+<div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+</div>
+  <br>
+  <%= button_to "Delete Project", @bucket, :method => :delete, class: "delete-btn",style:'width:50%;background-color:black;color:whitesmoke,font:bold', data: {confirm: 'Are you sure?'} %>
+</div>
+
+</body>
+</html>
