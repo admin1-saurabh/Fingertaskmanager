@@ -30,6 +30,7 @@
     }
 
     .create-button {
+      width:30%;
       padding: 15px 30px;
       font-size: 18px;
       font-weight: bold;
@@ -46,6 +47,7 @@
 
     .create-button:hover {
       background-color: #0056b3;
+      width:50%
     }
 
     .empty-buckets,
@@ -79,7 +81,7 @@
 
 <div class="container">
   <div class="button-container">
-    <%= button_to "Create Bucket", new_bucket_path, method: :get, class: "create-button" %>
+    <%= button_to "Create Project", new_bucket_path, method: :get, class: "create-button" %>
   </div>
 
   <div class="empty-buckets">
